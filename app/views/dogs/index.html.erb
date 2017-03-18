@@ -1,27 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <h1>Dogs</h1>
 
-<h1>Dogs</h1>
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_tag dogs_path, method: :get, class: 'form-inline' do %>
+    <div class="form-group col-sx-4">
+      <%= text_field_tag :search, params[:search], placeholder: 'Buscar pelo nome do Pet', class: 'form-control' %>
+    </div>
+    <%= cache do %>
+      <div class="form-group">
+        <%= select_tag :by_breed, options_from_collection_for_select(Breed.all, :id, :name, params["by_breed"]), include_blank: 'selecionar a raça', class: 'form-control' %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= select_tag 'by_gender',options_for_select(Dog.genders.to_a, params["by_gender"]), include_blank: 'lksdlsd', class: 'form-control checkbox' %>
+    </div>
+    <%= submit_tag 'SDJS', class: 'btn btn-default' %>
+    <% end %>
+  </div>
 
-<table class="table table-hover" id="sales">
-  <thead>
-    <tr>
-      <th class="text-center"><%= ta Dog, :name %></th>
-      <th class="text-center"><%= ta Dog, :gender %></th>
-      <th class="text-center"><%= ta Dog, :owner %></th>
-      <th class="text-center"><%= ta Dog, :breed %></th>
-      <th class="text-center"><%= ta Dog, :castrated %></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @dogs.each do |dog| %>
-    <tr>
-      <td><%= dog.name %></td>
-      <td><%= dog.gender %></td>
-      <td><%= dog.owner_name %></td>
-      <td><%= dog.breed_name %></td>
-      <td><%= dog.castrated %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<%= paginate @dogs %>
+
+  <table class="table table-hover table-index" id="sales">
+    <thead>
+      <tr>
+        <th class="text-center"><%= ta Dog, :name %></th>
+        <th class="text-center"><%= ta Dog, :gender %></th>
+        <th class="text-center"><%= ta Dog, :owner %></th>
+        <th class="text-center"><%= ta Dog, :breed %></th>
+        <th class="text-center"><%= ta Dog, :castrated %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td class="text-center"><%= dog.name %></td>
+        <td class="text-center"><%= dog.gender %></td>
+        <td class="text-center"><%= dog.owner_name %></td>
+        <td class="text-center"><%= dog.breed_name %></td>
+        <td class="text-center"><%= dog.castrated %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= paginate @dogs %>
+</div>
