@@ -1,5 +1,7 @@
 # Petshop
 
+[![Code Climate](https://codeclimate.com/github/dodops/petshop/badges/gpa.svg)](https://codeclimate.com/github/dodops/petshop)
+[![Codeship](https://codeship.com/projects/c67b0f50-ee5f-0134-6d5c-62b847b8d86d/status?branch=master)](https://codeship.com/projects/208707)
 
 Projeto que simula um petshop especializado em cachorros.
 
