@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      owner:
+        one: Dono
+        other: Donos
+    attributes:
+      owner:
+        name: Nome
+        phone: Telefone
