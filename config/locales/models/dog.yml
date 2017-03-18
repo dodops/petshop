@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      dog:
+        one: Cachorro
+        other: Cachorros
+    attributes:
+      dog:
+        owner: Dono
+        name: Nome
+        birth_date: Data de nascimento
+        last_visit: última visita
+        breed: Raça
+        gender: Gênero
+        castrated: Castrado?
