@@ -25,18 +25,22 @@
         <th class="text-center"><%= ta Dog, :name %></th>
         <th class="text-center"><%= ta Dog, :gender %></th>
         <th class="text-center"><%= ta Dog, :owner %></th>
+        <th class="text-center"><%= ta Dog, :last_visit %></th>
         <th class="text-center"><%= ta Dog, :breed %></th>
         <th class="text-center"><%= ta Dog, :castrated %></th>
+        <th class="text-center"><%= ta Dog, :birth_date %></th>
       </tr>
     </thead>
     <tbody>
     <% @dogs.each do |dog| %>
       <tr>
-        <td class="text-center"><%= dog.name %></td>
+        <td class="text-center"><%= link_to dog.name, dog_path(dog) %></td>
         <td class="text-center"><%= dog.gender %></td>
         <td class="text-center"><%= dog.owner_name %></td>
+        <td class="text-center"><%= l dog.last_visit %></td>
         <td class="text-center"><%= dog.breed_name %></td>
         <td class="text-center"><%= dog.castrated %></td>
+        <td class="text-center"><%= l dog.birth_date %></td>
       </tr>
     <% end %>
     </tbody>
