@@ -1,10 +1,8 @@
-if ENV['RAILS_ENV'] == 'test'
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    minimum_coverage 100
+require 'simplecov'
+SimpleCov.start 'rails' do
+  minimum_coverage 100
 
-    add_filter 'app/channels'
-  end
+  add_filter 'app/channels'
 end
 
 RSpec.configure do |config|
