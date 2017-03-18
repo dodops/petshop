@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 20170317142305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "breeds", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dogs", force: :cascade do |t|
     t.boolean  "castrated",  default: false
     t.integer  "gender"
@@ -24,9 +30,9 @@ ActiveRecord::Schema.define(version: 20170317142305) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "owner_id"
-    t.integer  "race_id"
+    t.integer  "breed_id"
+    t.index ["breed_id"], name: "index_dogs_on_breed_id", using: :btree
     t.index ["owner_id"], name: "index_dogs_on_owner_id", using: :btree
-    t.index ["race_id"], name: "index_dogs_on_race_id", using: :btree
   end
 
   create_table "owners", force: :cascade do |t|
@@ -36,12 +42,6 @@ ActiveRecord::Schema.define(version: 20170317142305) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "races", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "dogs", "breeds"
   add_foreign_key "dogs", "owners"
-  add_foreign_key "dogs", "races"
 end

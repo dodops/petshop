@@ -5,12 +5,12 @@ RSpec.describe Dog, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:gender) }
     it { is_expected.to validate_presence_of(:castrated) }
-    it { is_expected.to validate_presence_of(:race) }
+    it { is_expected.to validate_presence_of(:breed) }
     it { is_expected.to validate_presence_of(:owner) }
   end
 
   context 'model associations' do
-    it { is_expected.to belong_to(:race) }
+    it { is_expected.to belong_to(:breed) }
     it { is_expected.to belong_to(:owner) }
   end
 
@@ -44,13 +44,13 @@ RSpec.describe Dog, type: :model do
       it { expect(described_class.by_owner(owner_1)).to eq([dog_2]) }
     end
 
-    describe '.by_race' do
-      let!(:race_1) { create :race }
-      let!(:race_2) { create :race }
-      let!(:dog_1) { create :dog, race: race_1 }
-      let!(:dog_2) { create :dog, race: race_2 }
+    describe '.by_breed' do
+      let!(:breed_1) { create :breed }
+      let!(:breed_2) { create :breed }
+      let!(:dog_1) { create :dog, breed: breed_1 }
+      let!(:dog_2) { create :dog, breed: breed_2 }
 
-      it { expect(described_class.by_race(race_1)).to eq([dog_1]) }
+      it { expect(described_class.by_breed(breed_1)).to eq([dog_1]) }
     end
   end
 end

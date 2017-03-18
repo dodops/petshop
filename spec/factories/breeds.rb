@@ -1,9 +1,9 @@
 FactoryGirl.define do
-  factory :race do
+  factory :breed do
     name "MyString"
   end
 
-  factory :invalid_race, parent: :race do
+  factory :invalid_breed, parent: :breed do
     name nil
   end
 end

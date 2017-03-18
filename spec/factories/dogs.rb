@@ -6,7 +6,7 @@ FactoryGirl.define do
     name Faker::Cat.name
     last_visit "2017-03-17"
 
-    association :race, factory: :race
+    association :breed, factory: :breed
     association :owner, factory: :owner
   end
 
