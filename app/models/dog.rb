@@ -1,6 +1,4 @@
 class Dog < ApplicationRecord
-  include Filterable
-
   belongs_to :breed
   belongs_to :owner
 
@@ -22,7 +20,7 @@ class Dog < ApplicationRecord
   def self.search(query = nil)
     return all unless query.present?
 
-    sql = [:name, :onwer_name].join(' ILIKE :query OR ') << ' ILIKE :query'
-    where(sql, query: "%#{query}%")
+    sql = ['dogs.name', 'owners.name'].join(' ILIKE :query OR ') << ' ILIKE :query'
+    joins(:owner).where(sql, query: "%#{query}%")
   end
 end
