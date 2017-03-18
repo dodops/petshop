@@ -24,8 +24,8 @@ RSpec.describe Dog, type: :model do
       let!(:dog) { create :dog, name: "Pitica" }
 
       it "search records" do
-        expect { described_class.search("pitic").to eq([dog]) }
-        expect { described_class.search("bob").to eq([]) }
+        expect(described_class.search("pitic")).to eq([dog])
+        expect(described_class.search("bob")).to eq([])
       end
     end
 
