@@ -13,3 +13,6 @@ pt-BR:
         breed: Raça
         gender: Gênero
         castrated: Castrado?
+        genders:
+          male: Macho
+          female: Fêmea
