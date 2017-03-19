@@ -1,4 +1,41 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
+<div class="row" style="padding-top: 50px">
+  <div class="col-md-3">
+    <%= image_tag("dog-avatar", size: '220x220') %>
+   </div>
+  <div class="col-md-9">
+    <p>
+      <strong><%= ta Dog, :name %></strong>:
+      <%= @dog.name %>
+    </p>
+    <p>
+      <strong><%= ta Dog, :owner %></strong>:
+      <%= @dog.owner_name %>
+    </p>
+    <p>
+      <strong><%= ta Owner, :phone %></strong>:
+      <%= @dog.owner_phone %>
+    </p>
+    <p>
+      <strong><%= ta Dog, :gender %></strong>:
+      <%= human_enum(Dog, :gender, @dog.gender) %>
+    </p>
+    <p>
+      <strong><%= ta Dog, :last_visit %></strong>:
+      <%= l @dog.last_visit %>
+    </p>
+    <p>
+      <strong><%= ta Dog, :breed %></strong>:
+      <%= @dog.breed_name %>
+    </p>
+    <p>
+      <strong><%= ta Dog, :castrated %></strong>:
+      <%= tb @dog.castrated %>
+    </p>
+    <p>
+      <strong><%= ta Dog, :birth_date %></strong>
+      <%= l @dog.birth_date %>
+    </p>
+    <%= link_to t('.back'), dogs_path %>
+  </div>
+</div>
