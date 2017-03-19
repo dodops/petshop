@@ -21,7 +21,6 @@ class Dog < ApplicationRecord
   def self.search(query = nil)
     return all unless query.present?
 
-    sql = ['dogs.name', 'owners.name'].join(' ILIKE :query OR ') << ' ILIKE :query'
-    joins(:owner).where(sql, query: "%#{query}%")
+    joins(:owner).where('dogs.name ILIKE :query OR owners.name ILIKE :query', query: "%#{query}%")
   end
 end
