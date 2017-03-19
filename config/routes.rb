@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root "dogs#index"
 
-  resources :dogs
+  resources :dogs, only: [:index, :show]
 end

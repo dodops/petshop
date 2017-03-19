@@ -23,22 +23,4 @@ RSpec.describe "Dogs", type: :request do
       expect(response).to have_http_status(200)
     end
   end
-
-  describe 'GET /dogs/new' do
-    it 'responds with success' do
-      get new_dog_path
-
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe 'POST /dogs' do
-    let(:valid_attributes) { build(:dog).attributes }
-
-    it 'creates a new dog' do
-      expect{
-        post '/dogs', params: { dog: valid_attributes }
-      }.to change(Dog, :count).by(1)
-    end
-  end
 end
