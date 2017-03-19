@@ -4,7 +4,6 @@ RSpec.describe Dog, type: :model do
   context 'model validations' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:gender) }
-    it { is_expected.to validate_presence_of(:castrated) }
     it { is_expected.to validate_presence_of(:breed) }
     it { is_expected.to validate_presence_of(:owner) }
   end
@@ -34,6 +33,13 @@ RSpec.describe Dog, type: :model do
       let!(:dog_2) { create :dog, gender: Dog.genders[:female] }
 
       it { expect(described_class.by_gender(Dog.genders[:male])).to eq([dog_1]) }
+    end
+
+    describe '.neutering_state' do
+      let!(:dog_1) { create :dog, castrated: true }
+      let!(:dog_2) { create :dog, castrated: false }
+
+      it { expect(described_class.neutering_state(false)).to eq([dog_2]) }
     end
 
     describe '.by_onwer' do
