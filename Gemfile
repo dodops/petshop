@@ -24,6 +24,7 @@ end
 group :test do
   gem 'shoulda-matchers',       '~> 3.1',     require: false
   gem 'simplecov',              '~> 0.14.0',  require: false
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner',       '~> 1.5'
 end
 
