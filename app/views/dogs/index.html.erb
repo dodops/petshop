@@ -1,24 +1,9 @@
 <div class="col-md-12">
-  <h1>Dogs</h1>
+  <h1><%= t('.title') %></h1>
 
-  <div class="col-md-8 col-md-offset-2">
-    <%= form_tag dogs_path, method: :get, class: 'form-inline' do %>
-    <div class="form-group col-sx-4">
-      <%= text_field_tag :search, params[:search], placeholder: 'Buscar pelo nome do Pet', class: 'form-control' %>
-    </div>
-    <%= cache do %>
-      <div class="form-group">
-        <%= select_tag :by_breed, options_from_collection_for_select(Breed.all, :id, :name, params["by_breed"]), include_blank: 'selecionar a raça', class: 'form-control' %>
-      </div>
-    <% end %>
-    <div class="form-group">
-      <%= select_tag 'by_gender',options_for_select(Dog.genders.to_a, params["by_gender"]), include_blank: 'lksdlsd', class: 'form-control checkbox' %>
-    </div>
-    <%= submit_tag 'SDJS', class: 'btn btn-default' %>
-    <% end %>
-  </div>
+  <%= render 'search_form' %>
 
-
+  <br><br>
   <table class="table table-hover table-index" id="sales">
     <thead>
       <tr>
@@ -35,15 +20,17 @@
     <% @dogs.each do |dog| %>
       <tr>
         <td class="text-center"><%= link_to dog.name, dog_path(dog) %></td>
-        <td class="text-center"><%= dog.gender %></td>
+        <td class="text-center"><%= human_enum(Dog, :gender, dog.gender) %></td>
         <td class="text-center"><%= dog.owner_name %></td>
         <td class="text-center"><%= l dog.last_visit %></td>
         <td class="text-center"><%= dog.breed_name %></td>
-        <td class="text-center"><%= dog.castrated %></td>
+        <td class="text-center"><%= tb(dog.castrated) %></td>
         <td class="text-center"><%= l dog.birth_date %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
-  <%= paginate @dogs %>
+  <div class="col-md-6 col-md-offset-3">
+    <%= paginate @dogs %>
+  </div>
 </div>

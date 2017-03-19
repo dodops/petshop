@@ -1,0 +1,19 @@
+<div class="col-md-10 col-md-offset-1">
+  <%= form_tag dogs_path, method: :get, class: 'form-inline' do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], placeholder: t('dogs.index.form.search'), class: 'form-control' %>
+  </div>
+  <%= cache do %>
+    <div class="form-group">
+      <%= select_tag :by_breed, options_from_collection_for_select(Breed.all, :id, :name, params["by_breed"]), include_blank: t('dogs.index.form.breed'), class: 'form-control' %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= select_tag 'by_gender',options_for_select([["Macho", :male], ["Fêmea", :female]], params["by_gender"]), include_blank: t('dogs.index.form.gender'), class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= select_tag 'neutering_state', options_for_select([['Sim', true], ['Não', false]], params["neutering_state"]), include_blank: 'Animal castrado?', class: 'form-control' %>
+  </div>
+  <%= submit_tag t('dogs.index.form.submit'), class: 'btn btn-success' %>
+  <% end %>
+</div>
