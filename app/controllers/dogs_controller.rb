@@ -13,6 +13,6 @@ class DogsController < ApplicationController
   private
 
     def filtering_params(params)
-      params.slice(:by_gender, :by_breed, :by_owner, :search)
+      params.slice(:by_gender, :by_breed, :by_owner, :search, :neutering_state)
     end
 end

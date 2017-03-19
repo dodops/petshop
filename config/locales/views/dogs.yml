@@ -1,0 +1,11 @@
+pt-BR:
+  dogs:
+    index:
+      title: Listagens de Pets
+      form:
+        search: Buscar pelo Nome do Pet
+        gender: Gênero
+        breed: Selecionar a Raça
+        submit: Pesquisar
+    show:
+      back: Voltar
