@@ -3,6 +3,8 @@ SimpleCov.start 'rails' do
   minimum_coverage 100
 
   add_filter 'app/channels'
+  add_filter 'app/mailers'
+  add_filter 'app/jobs'
 end
 
 RSpec.configure do |config|
