@@ -1,4 +1,4 @@
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1 filter-form">
   <%= form_tag dogs_path, method: :get, class: 'form-inline' do %>
   <div class="form-group">
     <%= text_field_tag :search, params[:search], placeholder: t('dogs.index.form.search'), class: 'form-control' %>
