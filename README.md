@@ -1,8 +1,8 @@
 # Petshop
 
 [![Code Climate](https://codeclimate.com/github/dodops/petshop/badges/gpa.svg)](https://codeclimate.com/github/dodops/petshop)
-[![Codeship](https://codeship.com/projects/c67b0f50-ee5f-0134-6d5c-62b847b8d86d/status?branch=master)](https://codeship.com/projects/208707)
 [![Test Coverage](https://codeclimate.com/github/dodops/petshop/badges/coverage.svg)](https://codeclimate.com/github/dodops/petshop/coverage)
+[![Codeship](https://codeship.com/projects/c67b0f50-ee5f-0134-6d5c-62b847b8d86d/status?branch=master)](https://codeship.com/projects/208707)
 
 Projeto que simula um petshop especializado em cachorros.
 
@@ -14,9 +14,6 @@ Projeto que simula um petshop especializado em cachorros.
 - Ruby;
 - PostgreSQL;
 
-### 1 - Fork
-
-Crie um fork do projeto e clone o **seu repositório** localmente, caso tenha dúvidas em como prosseguir você pode seguir os passos [deste tutorial](http://blog.da2k.com.br/2015/02/04/git-e-github-do-clone-ao-pull-request).
 
 ### 2 - Instalação de dependências
 
@@ -24,15 +21,18 @@ Após clonar o repositório localmente, entre no diretório criado e execute o s
 
 ```console
 bundle install
-```
-
-### 3 - Configuração do banco de dados
-
-Agora você poderá executar o comando abaixo que criará o banco de dados localmente, bem como as tabelas e dados previamente definidos para desenvolvimento:
-
-```console
 rake db:setup
 ```
+
+### 3 - Gerador de Dogs
+
+Criei uma `rake_task` em `lib/tasks/populate.rake` que faz a geração de 1.000 cachorros e seus respectivos atributos.
+Depois de feita a instalação de dependências e configuração do banco, basta rodar:
+
+```console
+rake db:populate
+```
+
 
 ## Execução
 

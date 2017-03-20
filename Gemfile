@@ -12,13 +12,13 @@ gem 'jbuilder',                 '~> 2.5'
 
 gem 'bootstrap-sass',           '3.3.7'
 gem 'kaminari',                 '~> 1.0'
+gem 'faker',                    '~> 1.7'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails',            '~> 3.5'
   gem 'factory_girl_rails',     '~> 4.8'
   gem 'pry-rails',              '~> 0.3.5'
-  gem 'faker',                  '~> 1.7'
   gem 'capybara',               '~> 2.13'
 end
 
