@@ -6,6 +6,7 @@
 
 Projeto que simula um petshop especializado em cachorros.
 
+[Link de test](https://fierce-hamlet-32255.herokuapp.com/)
 
 ## Instalação
 
@@ -15,7 +16,7 @@ Projeto que simula um petshop especializado em cachorros.
 - PostgreSQL;
 
 
-### 2 - Instalação de dependências
+### 1 - Instalação de dependências
 
 Após clonar o repositório localmente, entre no diretório criado e execute o seguinte comando para instalar as dependências do projeto:
 
@@ -24,7 +25,7 @@ bundle install
 rake db:setup
 ```
 
-### 3 - Gerador de Dogs
+### 2 - Gerador de Dogs
 
 Criei uma `rake_task` em `lib/tasks/populate.rake` que faz a geração de 1.000 cachorros e seus respectivos atributos.
 Depois de feita a instalação de dependências e configuração do banco, basta rodar:
