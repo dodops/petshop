@@ -19,6 +19,7 @@ group :development, :test do
   gem 'factory_girl_rails',     '~> 4.8'
   gem 'pry-rails',              '~> 0.3.5'
   gem 'faker',                  '~> 1.7'
+  gem 'capybara',               '~> 2.13'
 end
 
 group :test do
